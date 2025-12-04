@@ -1,5 +1,6 @@
 const express = require("express");
 const compression = require("compression");
+const cors = require("cors");
 
 require("dotenv").config();
 require("./config/db");
@@ -10,6 +11,7 @@ const fakeRoutes = require("./routes/fake.routes");
 app.use(compression());
 app.use(express.json());
 app.use("/", fakeRoutes);
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("System is Started");
