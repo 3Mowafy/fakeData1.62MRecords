@@ -6,12 +6,12 @@ require("dotenv").config();
 require("./config/db");
 const app = express();
 const PORT = process.env.PORT;
-const fakeRoutes = require("./routes/fake.routes");
 
+app.use(cors());
 app.use(compression());
 app.use(express.json());
+const fakeRoutes = require("./routes/fake.routes");
 app.use("/", fakeRoutes);
-app.use(cors({ origin: ["http://localhost:4200"] }));
 
 app.get("/", (req, res) => {
   res.send("System is Started");
