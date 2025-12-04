@@ -11,7 +11,7 @@ const fakeRoutes = require("./routes/fake.routes");
 app.use(compression());
 app.use(express.json());
 app.use("/", fakeRoutes);
-app.use(cors({origin: '*'}));
+app.use(cors({ origin: ["http://localhost:4200"] }));
 
 app.get("/", (req, res) => {
   res.send("System is Started");
